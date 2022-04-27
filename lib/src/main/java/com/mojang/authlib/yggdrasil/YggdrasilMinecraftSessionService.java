@@ -40,7 +40,7 @@ import org.apache.logging.log4j.Logger;
 
 /* loaded from: authlib-1.5.25.jar:com/mojang/authlib/yggdrasil/YggdrasilMinecraftSessionService.class */
 public class YggdrasilMinecraftSessionService extends HttpMinecraftSessionService {
-    private static final String BASE_URL = "https://auth.ralsei.cf/session/minecraft/";
+    private static final String BASE_URL = "https://mcauth.ralsei.cf/session/minecraft/";
     private final PublicKey publicKey;
     private final Gson gson = new GsonBuilder().registerTypeAdapter(UUID.class, new UUIDTypeAdapter()).create();
     private final LoadingCache<GameProfile, GameProfile> insecureProfiles = CacheBuilder.newBuilder().expireAfterWrite(6, TimeUnit.HOURS).build(new CacheLoader<GameProfile, GameProfile>() { // from class: com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.1
@@ -48,10 +48,10 @@ public class YggdrasilMinecraftSessionService extends HttpMinecraftSessionServic
             return YggdrasilMinecraftSessionService.this.fillGameProfile(key, false);
         }
     });
-    private static final String[] WHITELISTED_DOMAINS = {"auth.ralsei.cf", ".minecraft.net"};
+    private static final String[] WHITELISTED_DOMAINS = {"mcauth.ralsei.cf", ".minecraft.net"};
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final URL JOIN_URL = HttpAuthenticationService.constantURL("https://auth.ralsei.cf/session/minecraft/join");
-    private static final URL CHECK_URL = HttpAuthenticationService.constantURL("https://auth.ralsei.cf/session/minecraft/hasJoined");
+    private static final URL JOIN_URL = HttpAuthenticationService.constantURL("https://mcauth.ralsei.cf/session/minecraft/join");
+    private static final URL CHECK_URL = HttpAuthenticationService.constantURL("https://mcauth.ralsei.cf/session/minecraft/hasJoined");
 
     /* JADX INFO: Access modifiers changed from: protected */
     public YggdrasilMinecraftSessionService(YggdrasilAuthenticationService authenticationService) {
@@ -147,7 +147,7 @@ public class YggdrasilMinecraftSessionService extends HttpMinecraftSessionServic
 
     protected GameProfile fillGameProfile(GameProfile profile, boolean requireSecure) {
         try {
-            URL url = HttpAuthenticationService.constantURL("https://auth.ralsei.cf/session/minecraft/profile/" + UUIDTypeAdapter.fromUUID(profile.getId()));
+            URL url = HttpAuthenticationService.constantURL("https://mcauth.ralsei.cf/session/minecraft/profile/" + UUIDTypeAdapter.fromUUID(profile.getId()));
             MinecraftProfilePropertiesResponse response = (MinecraftProfilePropertiesResponse) getAuthenticationService().makeRequest(HttpAuthenticationService.concatenateURL(url, "unsigned=" + (!requireSecure)), null, MinecraftProfilePropertiesResponse.class);
             if (response == null) {
                 LOGGER.debug("Couldn't fetch profile properties for " + profile + " as the profile does not exist");
