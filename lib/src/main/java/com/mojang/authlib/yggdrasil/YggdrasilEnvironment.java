@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 /* loaded from: authlib-3.3.39.jar:com/mojang/authlib/yggdrasil/YggdrasilEnvironment.class */
 public enum YggdrasilEnvironment {
-    PROD("https://auth.ralsei.cf", "https://auth.ralsei.cf", "https://auth.ralsei.cf", "https://auth.ralsei.cf"),
+    PROD("https://mcauth.ralsei.cf", "https://mcauth.ralsei.cf", "https://mcauth.ralsei.cf", "https://mcauth.ralsei.cf"),
     STAGING("https://yggdrasil-auth-staging.mojang.com", "https://api-staging.mojang.com", "https://api-sb-staging.minecraftservices.com", "https://api-staging.minecraftservices.com");
     
     private final Environment environment;

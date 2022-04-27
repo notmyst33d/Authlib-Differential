@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 
 /* loaded from: authlib-3.3.39.jar:com/mojang/authlib/yggdrasil/YggdrasilMinecraftSessionService.class */
 public class YggdrasilMinecraftSessionService extends HttpMinecraftSessionService {
-    private static final String[] ALLOWED_DOMAINS = {"auth.ralsei.cf", ".minecraft.net"};
+    private static final String[] ALLOWED_DOMAINS = {"mcauth.ralsei.cf", ".minecraft.net"};
     private static final String[] BLOCKED_DOMAINS = {"bugs.mojang.com", "education.minecraft.net", "feedback.minecraft.net"};
     private static final Logger LOGGER = LoggerFactory.getLogger(YggdrasilMinecraftSessionService.class);
     private final String baseUrl;
